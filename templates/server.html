@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL Query Executor</title>
+    <link rel="stylesheet" href="static\css\server.css" />
+  </head>
+  <body>
+    <h1>SQL Query Executor</h1>
+
+    <form method="post" action="/execute_query">
+      <label for="query">Enter SQL Query:</label>
+      <textarea name="query" id="query" rows="4" cols="50" required></textarea>
+      <br />
+      <button type="submit">Execute Query</button>
+    </form>
+
+    {% if query %}
+    <h2>Query: {{ query }}</h2>
+    {% if result %}
+    <h3>Result:</h3>
+    <pre>{{ result }}</pre>
+    {% if noisy_result %}
+    <h3>Noisy Result:</h3>
+    <pre>{{ noisy_result }}</pre>
+    {% else %}
+    <p>No result</p>
+    {% endif %} {% endif %}{% endif %}
+  </body>
+</html>
